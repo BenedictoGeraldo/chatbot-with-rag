@@ -20,7 +20,7 @@ const createChatLi = (message, className) => {
 const createTypingIndicator = () => {
   // Buat elemen indikator "sedang mengetik"
   const typingLi = document.createElement("li");
-  typingLi.classList.add("chat", "incoming");
+  typingLi.classList.add("chat", "incoming", "typing-indicator"); // Tambah class khusus
   typingLi.innerHTML = `
         <span class="material-symbols-outlined">smart_toy</span>
         <div class="typing-indicator">
@@ -47,18 +47,19 @@ const generateResponse = (userMessage) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      const botMessageLi = typingIndicator.querySelector("p")
-        ? typingIndicator
-        : createChatLi("", "incoming");
-      // Ganti indikator dengan pesan asli dari bot
-      botMessageLi.innerHTML = `<span class="material-symbols-outlined">smart_toy</span><p>${data.answer}</p>`;
+      // --- BAGIAN YANG DIPERBAIKI ---
+      // 1. Buat bubble chat jawaban yang baru
+      const botMessageLi = createChatLi(data.answer, "incoming");
+      // 2. Gantikan animasi 'mengetik' dengan bubble chat jawaban
+      chatbox.replaceChild(botMessageLi, typingIndicator);
     })
     .catch(() => {
       const errorLi = createChatLi(
         "Oops! Ada yang salah. Coba lagi nanti.",
         "incoming"
       );
-      errorLi.querySelector("p").classList.add("error");
+       errorLi.querySelector("p").classList.add("error");
+      // Gantikan animasi 'mengetik' dengan pesan error
       chatbox.replaceChild(errorLi, typingIndicator);
     })
     .finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
@@ -68,24 +69,18 @@ const handleChat = () => {
   const userMessage = chatInput.value.trim();
   if (!userMessage) return;
 
-  // Hapus textarea dan sesuaikan tingginya
   chatInput.value = "";
   chatInput.style.height = "auto";
 
-  // Tampilkan pesan pengguna di chatbox
   chatbox.appendChild(createChatLi(userMessage, "outgoing"));
   chatbox.scrollTo(0, chatbox.scrollHeight);
 
-  // Panggil fungsi untuk mendapatkan respons dari bot
   setTimeout(() => {
     generateResponse(userMessage);
   }, 600);
 };
 
-// Event listener untuk tombol kirim
 sendChatBtn.addEventListener("click", handleChat);
-
-// Event listener untuk tombol Enter
 chatInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();

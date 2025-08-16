@@ -36,7 +36,7 @@ retriever = vector_store.as_retriever()
 
 # --- LANGKAH 3: MEMBUAT RAG CHAIN DENGAN LANGCHAIN ---
 # Inisialisasi model LLM (Gemini Pro)
-llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.7)
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.7)
 
 # Buat template prompt
 # Ini adalah instruksi kita untuk LLM

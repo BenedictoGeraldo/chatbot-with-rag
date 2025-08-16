@@ -1,4 +1,4 @@
-Valar Morghulis
+_Valar Morghulis.._
 
 Python RAG Chatbot with Google Gemini
 Ini adalah proyek chatbot cerdas yang dibangun menggunakan Python dengan arsitektur RAG (Retrieval-Augmented Generation). Aplikasi ini memiliki antarmuka web interaktif dan dirancang untuk menjawab pertanyaan pengguna secara akurat berdasarkan basis pengetahuan (knowledge_base.txt) yang telah disediakan.
@@ -40,3 +40,5 @@ HTML
 CSS
 
 JavaScript
+
+_Valar Dohaeris.._

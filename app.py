@@ -7,8 +7,6 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-# Konfigurasi API Key Google Anda
-# Sebaiknya gunakan environment variable untuk keamanan
 os.environ["GOOGLE_API_KEY"] = "AIzaSyB2TgGkUdPUrWh1LGe1T3iYOjm_Vcd8Zr0"
 
 # Inisialisasi aplikasi Flask

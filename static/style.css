@@ -81,14 +81,14 @@ body {
   max-width: 75%;
   color: #fff;
   font-size: 0.95rem;
-  background: #3a5f7a; /* Icy Blue for User */
+  background: #3a5f7a;
 }
 .chatbox .chat p.error {
   background: #8c1c1c;
 }
 .chatbox .incoming p {
   color: #e0e0e0;
-  background: #333; /* Dark Grey for Bot */
+  background: #333;
 }
 
 /* --- Input Area --- */

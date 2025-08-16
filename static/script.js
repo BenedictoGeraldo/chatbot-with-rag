@@ -35,10 +35,8 @@ const createTypingIndicator = () => {
 const generateResponse = (userMessage) => {
   const typingIndicator = createTypingIndicator();
   chatbox.appendChild(typingIndicator);
-  // Auto-scroll saat indikator 'mengetik' muncul
   chatbox.scrollTo(0, chatbox.scrollHeight);
 
-  // Kirim permintaan POST ke backend
   fetch(API_ENDPOINT, {
     method: "POST",
     headers: {

@@ -20,7 +20,7 @@ const createChatLi = (message, className) => {
 const createTypingIndicator = () => {
   // Buat elemen indikator "sedang mengetik"
   const typingLi = document.createElement("li");
-  typingLi.classList.add("chat", "incoming", "typing-indicator"); // Tambah class khusus
+  typingLi.classList.add("chat", "incoming", "typing-indicator");
   typingLi.innerHTML = `
         <span class="material-symbols-outlined">smart_toy</span>
         <div class="typing-indicator">
@@ -35,6 +35,7 @@ const createTypingIndicator = () => {
 const generateResponse = (userMessage) => {
   const typingIndicator = createTypingIndicator();
   chatbox.appendChild(typingIndicator);
+  // Auto-scroll saat indikator 'mengetik' muncul
   chatbox.scrollTo(0, chatbox.scrollHeight);
 
   // Kirim permintaan POST ke backend
@@ -47,10 +48,7 @@ const generateResponse = (userMessage) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      // --- BAGIAN YANG DIPERBAIKI ---
-      // 1. Buat bubble chat jawaban yang baru
       const botMessageLi = createChatLi(data.answer, "incoming");
-      // 2. Gantikan animasi 'mengetik' dengan bubble chat jawaban
       chatbox.replaceChild(botMessageLi, typingIndicator);
     })
     .catch(() => {
@@ -59,10 +57,12 @@ const generateResponse = (userMessage) => {
         "incoming"
       );
        errorLi.querySelector("p").classList.add("error");
-      // Gantikan animasi 'mengetik' dengan pesan error
       chatbox.replaceChild(errorLi, typingIndicator);
     })
-    .finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
+    .finally(() => {
+      // Auto-scroll setelah jawaban diterima
+      chatbox.scrollTo(0, chatbox.scrollHeight);
+    });
 };
 
 const handleChat = () => {
@@ -73,6 +73,7 @@ const handleChat = () => {
   chatInput.style.height = "auto";
 
   chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+  // Auto-scroll setelah pesan pengguna dikirim
   chatbox.scrollTo(0, chatbox.scrollHeight);
 
   setTimeout(() => {

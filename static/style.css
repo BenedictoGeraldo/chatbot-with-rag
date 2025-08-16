@@ -17,14 +17,24 @@ body {
 
 .chatbot-container {
   width: 420px;
-  height: 650px; /* Memberi tinggi pasti pada container */
+  height: 650px;
   background: #fff;
   border-radius: 15px;
   box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
     0 32px 64px -48px rgba(0, 0, 0, 0.5);
-  overflow: hidden; /* Penting untuk menjaga elemen di dalam */
-  position: relative; /* Kunci untuk memposisikan input */
+  overflow: hidden;
+  position: relative;
 }
+
+/* === BAGIAN YANG DITAMBAHKAN === */
+.chatbot {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+/* =============================== */
+
 
 /* --- Header --- */
 .chatbot header {
@@ -41,8 +51,9 @@ body {
 /* --- Chatbox --- */
 .chatbot .chatbox {
   overflow-y: auto;
-  height: 100%; /* Mengisi seluruh ruang yang tersedia */
-  padding: 30px 20px 100px; /* Padding bawah agar chat tidak tertutup input */
+  /* Menggunakan flex-grow agar mengisi sisa ruang */
+  flex-grow: 1;
+  padding: 30px 20px;
   list-style: none;
 }
 .chatbot .chatbox .chat {
@@ -82,14 +93,11 @@ body {
   background: #f2f2f2;
 }
 
-/* --- Input Area (BAGIAN YANG DIPERBAIKI) --- */
+/* --- Input Area --- */
 .chatbot .chat-input {
+  position: relative;
   display: flex;
   gap: 5px;
-  position: absolute; /* Menempel di bagian bawah container */
-  bottom: 0;
-  left: 0;
-  width: 100%;
   background: #fff;
   padding: 5px 20px;
   border-top: 1px solid #ddd;

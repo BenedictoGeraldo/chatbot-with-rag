@@ -1,5 +1,5 @@
 # Tentang Perusahaan Kami
-Perusahaan kami, "Solusi Digital Nusantara", adalah sebuah agensi digital yang berfokus pada pengembangan website dan aplikasi mobile. Kami berdiri sejak tahun 2020 di Jakarta, Indonesia. Misi kami adalah membantu UMKM untuk go digital.
+Perusahaan kami, "Night's Watch", adalah sebuah agensi digital yang berfokus pada pengembangan website dan aplikasi mobile. Kami berdiri sejak tahun 2020 di Jakarta, Indonesia. Misi kami adalah membantu UMKM untuk go digital.
 
 # Layanan yang Kami Tawarkan
 Kami menawarkan tiga layanan utama:
@@ -11,4 +11,4 @@ Kami menawarkan tiga layanan utama:
 Kantor kami buka dari hari Senin hingga Jumat, pukul 09:00 pagi hingga 17:00 sore WIB. Kami tutup pada hari Sabtu, Minggu, dan hari libur nasional.
 
 # Cara Menghubungi Kami
-Anda dapat menghubungi kami melalui email di support@solusidigital.id atau melalui telepon di (021) 123-4567.
+Anda dapat menghubungi kami melalui email di jonsnow@lordcommander.id atau melalui telepon di (021) 123-4567.
